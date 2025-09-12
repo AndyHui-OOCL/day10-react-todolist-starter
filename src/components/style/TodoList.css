@@ -11,18 +11,32 @@
 .todo-item {
     display: flex;
     align-items: center;
-    margin-bottom: 2px;
     flex-grow: 1;
-    padding-left: 15px;
-    padding-right: 15px;
+    margin-bottom: 5px;
+}
+
+.todo-delete {
+    padding: 2px;
 }
 
 .todo-info {
     width: 200px;
     border: 1px black solid;
-    margin: 5px;
+    margin-right: 8px;
 
     &.finished {
         text-decoration-line: line-through;
     }
+}
+
+.add-form {
+    display: flex;
+}
+.add-input {
+    margin-right: 8px;
+}
+
+.todo-add {
+    background-color: lightskyblue;
+    color: white;
 }
