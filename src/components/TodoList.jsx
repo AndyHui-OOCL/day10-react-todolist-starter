@@ -1,7 +1,8 @@
 import {TodoContext} from "../contexts/TodoContext";
-import "./TodoList.css"
+import "./style/TodoList.css"
 import {useContext} from "react";
 import TodoItem from "./TodoItem";
+import TodoGenerator from "./TodoGenerator";
 
 const TodoList = () => {
     const {todoItems} = useContext(TodoContext);
@@ -19,7 +20,9 @@ const TodoList = () => {
                     />
                 ))
             }
+            <TodoGenerator/>
         </div>
+
     );
 }
 
