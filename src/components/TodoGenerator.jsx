@@ -13,14 +13,13 @@ function TodoGenerator() {
     }
 
     return (
-        <div>
+        <div className="todo-generator">
             <input
-                className="todo-input"
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
             />
-            <button className="todo-add" onClick={addNewTodoItem}>add</button>
+            <button onClick={addNewTodoItem}>add</button>
         </div>
     )
 }
