@@ -8,13 +8,22 @@ function TodoItem(props) {
         dispatch({type: "mark_as_done", id: id});
     }
 
+    function deleteTodoItem(id) {
+        dispatch({type: "delete_todo", id: id});
+    }
+
     return (
-        <div
-            className={`todo-item ${props.done ? 'finished' : ''}`}
-            onClick={() => {
-                markedAsDone(props.id)
-            }}>
-            {props.text}
+        <div>
+            <div
+                className={`todo-item ${props.done ? 'finished' : ''}`}
+                onClick={() => {
+                    markedAsDone(props.id)
+                }}>
+                {props.text}
+            </div>
+            <button
+                onClick={() => {deleteTodoItem(props.id)}}
+            >-</button>
         </div>
     )
 }
