@@ -10,7 +10,7 @@ export const todoReducer = (state, action) => {
     switch (action.type) {
         case 'mark_as_done':
             return state.map(todo => {
-                if(action.id === todo.id) {
+                if (action.id === todo.id) {
                     const done = !todo.done;
                     return {...todo, done: done}
                 }

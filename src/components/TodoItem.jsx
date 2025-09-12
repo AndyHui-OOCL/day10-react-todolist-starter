@@ -11,7 +11,9 @@ function TodoItem(props) {
     return (
         <div
             className={`todo-item ${props.done ? 'finished' : ''}`}
-            onClick={() => {markedAsDone(props.id)}}>
+            onClick={() => {
+                markedAsDone(props.id)
+            }}>
             {props.text}
         </div>
     )
