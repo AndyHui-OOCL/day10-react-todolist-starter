@@ -1,24 +1,25 @@
 import {TodoContext} from "../contexts/TodoContext";
 import "./TodoList.css"
 import {useContext} from "react";
+import TodoItem from "./TodoItem";
 
 const TodoList = () => {
-    const {todoItems, dispatch} = useContext(TodoContext);
-
-    function markedAsDone(id) {
-        dispatch({type: "mark_as_done", id: id})
-    }
+    const {todoItems} = useContext(TodoContext);
 
     return (
-        <div className={"todo-list"}>
-            <div>Todo List</div>
+        <div className="todo-list">
+            <div className="todo-title">Todo List</div>
             {
-            todoItems.map(({id, text, done}) => {
-                return <div
-                    className={`todo-item ${done? 'finished' : ''}`}
-                    onClick={() => {markedAsDone(id)}}> {text}</div>
-            })
-        }</div>
+                todoItems.map(({id, text, done}) => (
+                    <TodoItem
+                        key={id}
+                        id={id}
+                        text={text}
+                        done={done}
+                    />
+                ))
+            }
+        </div>
     );
 }
 
