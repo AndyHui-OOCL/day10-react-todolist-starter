@@ -1,0 +1,10 @@
+.todo-list {
+    justify-self: center;
+}
+
+.todo-item {
+    width: 200px;
+    border: 1px black solid;
+    margin: 5px;
+    padding: 5px;
+}
