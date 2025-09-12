@@ -22,8 +22,11 @@ function TodoItem(props) {
                 {props.text}
             </div>
             <button
-                onClick={() => {deleteTodoItem(props.id)}}
-            > X </button>
+                onClick={() => {
+                    deleteTodoItem(props.id)
+                }}
+            > X
+            </button>
         </div>
     )
 }

@@ -28,6 +28,7 @@
 .todo-info {
     width: 400px;
     border: 1px black solid;
+
     &.finished {
         text-decoration-line: line-through;
     }
