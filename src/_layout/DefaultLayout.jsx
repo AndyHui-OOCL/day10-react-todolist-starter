@@ -9,14 +9,17 @@ const items = [
     {
         label: <NavLink to={'/'}>Home</NavLink>,
         key: 'Home',
+        icon: <HomeOutlined/>
     },
     {
         label: <NavLink to={'/todos'}>Todo List</NavLink>,
         key: 'Todo List',
+        icon: <UnorderedListOutlined/>
     },
     {
         label: <NavLink to={'/about'}>About</NavLink>,
         key: 'About',
+        icon:<InfoCircleOutlined/>
     }
 ];
 
