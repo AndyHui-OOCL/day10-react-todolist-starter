@@ -20,18 +20,20 @@ function DeleteTodoButton(props) {
     }
 
     return (
-            <Button
-                type="text"
-                danger
-                icon={<DeleteOutlined />}
-                size="small"
-                onClick={() => {deleteTodoItem(props.id)}}
-                style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                }}
-            />
+        <Button
+            type="text"
+            danger
+            icon={<DeleteOutlined/>}
+            size="small"
+            onClick={() => {
+                deleteTodoItem(props.id)
+            }}
+            style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+            }}
+        />
     )
 }
 

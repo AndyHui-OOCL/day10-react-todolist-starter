@@ -1,7 +1,7 @@
 import {useEffect, useReducer} from "react";
 import {todoInitialState, todoReducer} from "../../reducers/todoReducer";
 import {getTodos} from "../../apis/apis";
-import {message, Typography, Empty, Divider, Row, Col, Card, Space} from "antd";
+import {Card, Col, Divider, Empty, message, Row, Space, Typography} from "antd";
 import {TodoContext} from "../../contexts/TodoContext";
 import TodoItem from "./TodoItem";
 import "./style/TodoList.css";
@@ -33,7 +33,6 @@ const FinishedTodoList = () => {
                 <Col xs={24} sm={20} md={16} lg={12} xl={10}>
                     <Card
                         className="todo-list-card"
-                        bordered={false}
                         style={{
                             boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
                             borderRadius: '12px'
@@ -42,7 +41,7 @@ const FinishedTodoList = () => {
                         <Space direction="vertical" size="large" style={{width: '100%'}}>
                             <div style={{textAlign: 'center'}}>
                                 <Title level={2} style={{marginBottom: '8px', color: '#52c41a'}}>
-                                    <CheckCircleOutlined style={{marginRight: '8px'}} />
+                                    <CheckCircleOutlined style={{marginRight: '8px'}}/>
                                     Completed Tasks
                                 </Title>
                                 <Typography.Text type="secondary">
@@ -50,7 +49,7 @@ const FinishedTodoList = () => {
                                 </Typography.Text>
                             </div>
 
-                            <Divider style={{margin: '16px 0'}} />
+                            <Divider style={{margin: '16px 0'}}/>
 
                             {completedTodos.length <= 0 ? (
                                 <Empty

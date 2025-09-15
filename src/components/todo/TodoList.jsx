@@ -5,7 +5,7 @@ import TodoItem from "./TodoItem";
 import TodoGenerator from "./TodoGenerator";
 import {todoInitialState, todoReducer} from "../../reducers/todoReducer";
 import {getTodos} from "../../apis/apis";
-import {message, Typography, Empty, Divider, Row, Col, Card, Space} from "antd";
+import {Card, Col, Divider, Empty, message, Row, Space, Typography} from "antd";
 import {CheckCircleOutlined} from "@ant-design/icons";
 
 const {Title} = Typography;
@@ -34,7 +34,6 @@ const TodoList = () => {
                 <Col xs={24} sm={20} md={16} lg={12} xl={10}>
                     <Card
                         className="todo-list-card"
-                        bordered={false}
                         style={{
                             boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
                             borderRadius: '12px'
@@ -43,7 +42,7 @@ const TodoList = () => {
                         <Space direction="vertical" size="large" style={{width: '100%'}}>
                             <div style={{textAlign: 'center'}}>
                                 <Title level={2} style={{marginBottom: '8px', color: '#1890ff'}}>
-                                    <CheckCircleOutlined style={{marginRight: '8px'}} />
+                                    <CheckCircleOutlined style={{marginRight: '8px'}}/>
                                     Active Tasks
                                 </Title>
                                 <Typography.Text type="secondary">
@@ -51,7 +50,7 @@ const TodoList = () => {
                                 </Typography.Text>
                             </div>
 
-                            <Divider style={{margin: '16px 0'}} />
+                            <Divider style={{margin: '16px 0'}}/>
 
                             <TodoGenerator/>
 

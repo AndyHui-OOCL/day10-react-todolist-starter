@@ -1,7 +1,7 @@
 import {useContext} from "react";
 import {TodoContext} from "../../contexts/TodoContext";
 import {updateTodoById} from "../../apis/apis";
-import {message, Card, Checkbox, Typography, Space} from "antd";
+import {Card, Checkbox, message, Space, Typography} from "antd";
 import ModifyTodoTextButton from "./buttons/ModifyTodoTextButton";
 import DeleteTodoButton from "./buttons/DeleteTodoButton";
 import TodoDetailButton from "./buttons/TodoDetailButton";
@@ -37,7 +37,6 @@ function TodoItem(props) {
                 marginBottom: '8px',
                 transition: 'all 0.3s ease'
             }}
-            bodyStyle={{padding: '12px 16px'}}
         >
             <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
                 <div style={{display: 'flex', alignItems: 'center', flex: 1}}>
@@ -60,9 +59,9 @@ function TodoItem(props) {
                 </div>
 
                 <Space size="small" className="todo-actions">
-                    <TodoDetailButton id={props.id} />
-                    <ModifyTodoTextButton id={props.id} />
-                    <DeleteTodoButton id={props.id} />
+                    <TodoDetailButton id={props.id}/>
+                    <ModifyTodoTextButton id={props.id}/>
+                    <DeleteTodoButton id={props.id}/>
                 </Space>
             </div>
         </Card>

@@ -1,7 +1,6 @@
 import {useParams} from "react-router";
 import {useEffect, useReducer, useState} from "react";
-import {useNavigate} from "react-router-dom";
-import {Card, Typography, Spin} from "antd";
+import {Card, Spin, Typography} from "antd";
 import {CheckCircleOutlined, ClockCircleOutlined} from "@ant-design/icons";
 import {todoInitialState, todoReducer} from "../../reducers/todoReducer";
 import {getTodos} from "../../apis/apis";
@@ -39,8 +38,20 @@ function TodoItemDetail() {
         return (
             <Card className="todo-detail-card" title="Todo Details">
                 <div className="todo-detail-loading">
-                    <Spin size="large" />
+                    <Spin size="large"/>
                     <Typography.Text>Loading todo details...</Typography.Text>
+                </div>
+            </Card>
+        );
+    }
+
+    if (!todo) {
+        return (
+            <Card className="todo-detail-card" title="Todo Details">
+                <div className="todo-detail-content">
+                    <Typography.Text type="warning">
+                        Todo with ID "{id}" not found.
+                    </Typography.Text>
                 </div>
             </Card>
         );
@@ -66,12 +77,12 @@ function TodoItemDetail() {
                     <div className="todo-field-value">
                         {todo.done ? (
                             <>
-                                <CheckCircleOutlined style={{ color: '#52c41a' }} />
+                                <CheckCircleOutlined style={{color: '#52c41a'}}/>
                                 <span className="status-badge status-completed">Completed</span>
                             </>
                         ) : (
                             <>
-                                <ClockCircleOutlined style={{ color: '#fa8c16' }} />
+                                <ClockCircleOutlined style={{color: '#fa8c16'}}/>
                                 <span className="status-badge status-active">Active</span>
                             </>
                         )}
