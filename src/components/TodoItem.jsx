@@ -7,6 +7,7 @@ import ModifyTodoTextButton from "./ModifyTodoTextButton";
 function TodoItem(props) {
     const {todoItems, dispatch} = useContext(TodoContext);
 
+
     function markedAsDone(id) {
         const targetTodo = todoItems.find(todo => todo.id === id);
         const updatedTodo = {...targetTodo, done: !targetTodo.done};
@@ -19,20 +20,6 @@ function TodoItem(props) {
             }
             message.error("Unsuccessful mark as done!");
         });
-    }
-
-    function updateTodoText(id, newText) {
-        const targetTodo = todoItems.find(todo => todo.id === id);
-        const updatedTodo = {...targetTodo, text: newText};
-        updateTodoById(id, updatedTodo).then(() => {
-            dispatch({type: "update_todo_text", id: id})
-            message.success("Todo text updated!")
-        }).catch((error) => {
-            if(error.response) {
-                console.log(error.response.data);
-            }
-            message.error("Todo text cannot be updated!")
-        })
     }
 
     function deleteTodoItem(id) {
@@ -56,7 +43,7 @@ function TodoItem(props) {
                 }}>
                 {props.text}
             </div>
-            <ModifyTodoTextButton></ModifyTodoTextButton>
+            <ModifyTodoTextButton id={props.id}></ModifyTodoTextButton>
             <button
                 onClick={() => {
                     deleteTodoItem(props.id)
