@@ -1,6 +1,7 @@
 import {useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
 import {deleteTodoById, updateTodoById} from "../apis/apis";
+import {message} from "antd";
 
 function TodoItem(props) {
     const {todoItems, dispatch} = useContext(TodoContext);
@@ -10,20 +11,24 @@ function TodoItem(props) {
         const updatedTodo = {...targetTodo, done: !targetTodo.done};
         updateTodoById(id, updatedTodo).then(() => {
             dispatch({type: "mark_as_done", id: id});
+            message.success("Successful update!");
         }).catch((error) => {
             if (error.response) {
                 console.log(error.response.data);
             }
+            message.error("Unsuccessful update!");
         });
     }
 
     function deleteTodoItem(id) {
         deleteTodoById(id).then(() => {
             dispatch({type: "delete_todo", id: id})
+            message.success("Successful delete!");
         }).catch((error) => {
             if (error.response) {
                 console.log(error.response.data);
             }
+            message.error("Unsuccessful delete")
         })
     }
 

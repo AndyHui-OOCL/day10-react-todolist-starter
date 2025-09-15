@@ -5,6 +5,7 @@ import TodoItem from "./TodoItem";
 import TodoGenerator from "./TodoGenerator";
 import {todoInitialState, todoReducer} from "../reducers/todoReducer";
 import {getTodos} from "../apis/apis";
+import {message} from "antd";
 
 const TodoList = () => {
     const [todoItems, dispatch] = useReducer(todoReducer, todoInitialState);
@@ -13,10 +14,12 @@ const TodoList = () => {
     useEffect(() => {
         getTodos().then(response => {
             dispatch({type: 'load_todos', todos: response.data})
+            message.success("Successful query!");
         }).catch((error) => {
             if (error.response) {
                 console.log(error.response.data);
             }
+            message.error("Unsuccessful query!")
         })
     }, []);
 
