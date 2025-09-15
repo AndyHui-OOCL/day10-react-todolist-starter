@@ -1,23 +1,7 @@
 import './App.css';
 import TodoList from "./components/TodoList";
-import {createBrowserRouter, NavLink, Outlet, RouterProvider, useParams} from "react-router";
-
-function DefaultLayout() {
-    return <>
-        <header>
-            <nav>
-                <ul>
-                    <li><NavLink to={'/'}>Home</NavLink></li>
-                    <li><NavLink to={'/todos'}>Todo List</NavLink></li>
-                    <li><NavLink to={'/about'}>About</NavLink></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <Outlet></Outlet>
-        </main>
-    </>
-}
+import {createBrowserRouter, RouterProvider, useParams} from "react-router";
+import {DefaultLayout} from "./_layout/DefaultLayout";
 
 function ErrorPage() {
     return <h1>Error Page</h1>;
