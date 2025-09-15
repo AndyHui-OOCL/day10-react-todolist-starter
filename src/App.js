@@ -1,8 +1,5 @@
-import {useReducer} from "react";
 import './App.css';
 import TodoList from "./components/TodoList";
-import {todoInitialState, todoReducer} from "./reducers/todoReducer";
-import {TodoContext} from "./contexts/TodoContext";
 import {createBrowserRouter, NavLink, Outlet, RouterProvider} from "react-router";
 
 function DefaultLayout() {

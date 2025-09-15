@@ -1,6 +1,6 @@
 import {TodoContext} from "../contexts/TodoContext";
 import "./style/TodoList.css"
-import {useContext, useReducer} from "react";
+import {useReducer} from "react";
 import TodoItem from "./TodoItem";
 import TodoGenerator from "./TodoGenerator";
 import {todoInitialState, todoReducer} from "../reducers/todoReducer";
