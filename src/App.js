@@ -1,6 +1,6 @@
 import './App.css';
 import TodoList from "./components/TodoList";
-import {createBrowserRouter, NavLink, Outlet, RouterProvider} from "react-router";
+import {createBrowserRouter, NavLink, Outlet, RouterProvider, useParams} from "react-router";
 
 function DefaultLayout() {
     return <>
@@ -8,7 +8,7 @@ function DefaultLayout() {
             <nav>
                 <ul>
                     <li><NavLink to={'/'}>Home</NavLink></li>
-                    <li><NavLink to={'/todo'}>Todo List</NavLink></li>
+                    <li><NavLink to={'/todos'}>Todo List</NavLink></li>
                     <li><NavLink to={'/about'}>About</NavLink></li>
                 </ul>
             </nav>
@@ -23,6 +23,13 @@ function ErrorPage() {
     return <h1>Error Page</h1>;
 }
 
+function TodoDetail() {
+    const {id} = useParams();
+    return <h1>
+        This is: {id} detail
+    </h1>;
+}
+
 const routes = [
     {
         path: '/',
@@ -32,8 +39,11 @@ const routes = [
             path: '',
             element: <h1>Home Page</h1>
         }, {
-            path: 'todo',
-            element: <TodoList/>
+            path: 'todos',
+            element: <TodoList/>,
+        }, {
+            path: '/todos/:id',
+            element: <TodoDetail></TodoDetail>
         }, {
             path: 'about',
             element: <h1>About Us</h1>
