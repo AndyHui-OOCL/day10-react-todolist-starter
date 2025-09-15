@@ -4,6 +4,8 @@ import {createBrowserRouter, RouterProvider} from "react-router";
 import {DefaultLayout} from "./_layout/DefaultLayout";
 import FinishedTodoList from "./components/todo/FinishedTodoList";
 import TodoItemDetail from "./components/todo/TodoItemDetail";
+import Homepage from "./components/home/Homepage";
+import AboutUs from "./components/about/AboutUs";
 
 function ErrorPage() {
     return <h1>Error Page</h1>;
@@ -17,7 +19,7 @@ const routes = [
         errorElement: <ErrorPage/>,
         children: [{
             path: '',
-            element: <h1>Home Page</h1>
+            element: <Homepage/>
         }, {
             path: 'todos',
             element: <TodoList/>,
@@ -26,7 +28,7 @@ const routes = [
             element: <TodoItemDetail></TodoItemDetail>
         }, {
             path: 'about',
-            element: <h1>About Us</h1>
+            element: <AboutUs/>
         }, {
             path: 'finished-todos',
             element: <FinishedTodoList/>

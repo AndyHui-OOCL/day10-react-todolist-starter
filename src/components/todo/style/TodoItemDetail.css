@@ -1,0 +1,178 @@
+.todo-detail-card {
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.todo-detail-card .ant-card-head {
+    background: linear-gradient(135deg, #1890ff 0%, #40a9ff 100%);
+    border-radius: 12px 12px 0 0;
+    border-bottom: none;
+}
+
+.todo-detail-card .ant-card-head-title {
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.todo-detail-card .ant-card-extra {
+    color: white;
+}
+
+.todo-detail-card .ant-card-extra .ant-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.todo-detail-card .ant-card-extra .ant-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.todo-detail-content {
+    padding: 32px;
+}
+
+.todo-detail-field {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.todo-detail-field:hover {
+    border-color: #d9d9d9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.todo-detail-field:last-child {
+    margin-bottom: 0;
+}
+
+.todo-field-label {
+    color: #8c8c8c;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.todo-field-value {
+    color: #262626;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.todo-id-field .todo-field-value {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    background: #f6f8fa;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    color: #0969da;
+    font-weight: 600;
+}
+
+.todo-status-field .todo-field-value {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-completed {
+    background: #f6ffed;
+    color: #52c41a;
+    border: 1px solid #b7eb8f;
+}
+
+.status-active {
+    background: #fff7e6;
+    color: #fa8c16;
+    border: 1px solid #ffd591;
+}
+
+.todo-text-field .todo-field-value {
+    background: #fafafa;
+    padding: 16px;
+    border-radius: 6px;
+    border-left: 4px solid #1890ff;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.todo-detail-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.todo-detail-loading .ant-spin {
+    margin-bottom: 16px;
+}
+
+.todo-detail-error-icon {
+    font-size: 48px;
+    color: #ff4d4f;
+    margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+    .todo-detail-card {
+        margin: 10px;
+        max-width: none;
+    }
+
+    .todo-detail-content {
+        padding: 20px;
+    }
+
+    .todo-detail-field {
+        padding: 16px;
+    }
+
+    .todo-detail-card .ant-card-head-title {
+        font-size: 18px;
+    }
+}
+
+.todo-detail-card {
+    animation: slideInUp 0.5s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,18 +1,17 @@
 import {useParams} from "react-router";
 import {useEffect, useReducer, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import {Button, Card, Typography} from "antd";
-import {ArrowLeftOutlined} from "@ant-design/icons";
+import {Card, Typography, Spin} from "antd";
+import {CheckCircleOutlined, ClockCircleOutlined} from "@ant-design/icons";
 import {todoInitialState, todoReducer} from "../../reducers/todoReducer";
 import {getTodos} from "../../apis/apis";
+import "./style/TodoItemDetail.css";
 
 function TodoItemDetail() {
     const {id} = useParams();
-    console.log(id)
     const [todoItems, dispatch] = useReducer(todoReducer, todoInitialState);
     const [todo, setTodo] = useState(null);
     const [loading, setLoading] = useState(true);
-    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchTodos = async () => {
@@ -31,53 +30,53 @@ function TodoItemDetail() {
 
     useEffect(() => {
         if (todoItems.length > 0 && id) {
-            // Convert id to number for comparison if needed, or use string comparison
             const targetTodo = todoItems.find(item => item.id.toString() === id.toString());
-            console.log(targetTodo)
             setTodo(targetTodo);
         }
     }, [id, todoItems]);
 
-    const handleGoBack = () => {
-        navigate("/todos")
-    }
-
     if (loading) {
         return (
-            <Card title="Todo details">
-                <div>Loading...</div>
-            </Card>
-        );
-    }
-
-    if (!todo) {
-        return (
-            <Card
-                title="Todo details"
-                extra={
-                    <Button type="primary" onClick={handleGoBack} icon={<ArrowLeftOutlined/>}> Back</Button>
-                }
-            >
-                <div>Todo not found</div>
+            <Card className="todo-detail-card" title="Todo Details">
+                <div className="todo-detail-loading">
+                    <Spin size="large" />
+                    <Typography.Text>Loading todo details...</Typography.Text>
+                </div>
             </Card>
         );
     }
 
     return (
         <Card
-            title="Todo details"
-            extra={
-                <Button type="primary" onClick={handleGoBack} icon={<ArrowLeftOutlined/>}> Back</Button>
-            }
+            className="todo-detail-card"
+            title="Todo Details"
         >
-            <div className="todo-detail">
-                <Typography.Title level={4}>ID: {todo.id}</Typography.Title>
-                <Typography.Paragraph>
-                    <strong>Text:</strong> {todo.text}
-                </Typography.Paragraph>
-                <Typography.Paragraph>
-                    <strong>Status:</strong> {todo.done ? "Completed" : "Active"}
-                </Typography.Paragraph>
+            <div className="todo-detail-content">
+                <div className="todo-detail-field todo-id-field">
+                    <div className="todo-field-value">{todo.id}</div>
+                </div>
+
+                <div className="todo-detail-field todo-text-field">
+                    <span className="todo-field-label">Description</span>
+                    <div className="todo-field-value">{todo.text}</div>
+                </div>
+
+                <div className="todo-detail-field todo-status-field">
+                    <span className="todo-field-label">Status</span>
+                    <div className="todo-field-value">
+                        {todo.done ? (
+                            <>
+                                <CheckCircleOutlined style={{ color: '#52c41a' }} />
+                                <span className="status-badge status-completed">Completed</span>
+                            </>
+                        ) : (
+                            <>
+                                <ClockCircleOutlined style={{ color: '#fa8c16' }} />
+                                <span className="status-badge status-active">Active</span>
+                            </>
+                        )}
+                    </div>
+                </div>
             </div>
         </Card>
     )
