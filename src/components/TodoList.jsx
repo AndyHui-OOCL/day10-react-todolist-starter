@@ -14,7 +14,7 @@ const TodoList = () => {
         getTodos().then(response => {
             dispatch({type: 'load_todos', todos: response.data})
         }).catch((error) => {
-            if( error.response ){
+            if (error.response) {
                 console.log(error.response.data);
             }
         })
@@ -38,7 +38,7 @@ const TodoList = () => {
                                 done={done}
                             />
                         ))
-                )}
+                    )}
                 <TodoGenerator/>
             </div>
         </TodoContext.Provider>

@@ -1,10 +1,10 @@
 import axios from "axios";
 
 const instance = axios.create({
-        baseURL: "https://68c78c8d5d8d9f5147322294.mockapi.io/api/v1/",
+    baseURL: "https://68c78c8d5d8d9f5147322294.mockapi.io/api/v1/",
 });
 
-export async function getTodos(){
+export async function getTodos() {
     return await instance.get('/todos');
 }
 

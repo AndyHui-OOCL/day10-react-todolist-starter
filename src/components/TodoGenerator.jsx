@@ -6,12 +6,12 @@ function TodoGenerator() {
     const {dispatch} = useContext(TodoContext);
     const [inputValue, setInputValue] = useState("");
 
-    function  addNewTodoItem() {
+    function addNewTodoItem() {
         if (inputValue.trim()) {
             addTodos({text: inputValue, done: false}).then((response) => {
                 dispatch({type: "add_todo", todo: response.data})
             }).catch((error) => {
-                if( error.response ){
+                if (error.response) {
                     console.log(error.response.data);
                 }
             })
