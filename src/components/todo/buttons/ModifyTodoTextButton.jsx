@@ -1,8 +1,8 @@
 import {Button, Input, message, Modal} from "antd";
 import {EditOutlined} from "@ant-design/icons";
-import {updateTodoById} from "../../apis/apis";
+import {updateTodoById} from "../../../apis/apis";
 import {useContext, useState} from "react";
-import {TodoContext} from "../../contexts/TodoContext";
+import {TodoContext} from "../../../contexts/TodoContext";
 
 function ModifyTodoTextButton(props) {
     const {todoItems, dispatch} = useContext(TodoContext);
@@ -48,7 +48,11 @@ function ModifyTodoTextButton(props) {
     }
 
     return (<>
-        <Button icon={<EditOutlined/>} onClick={showModal}></Button>
+        <Button
+            className="todo-action-btn edit-btn"
+            icon={<EditOutlined/>}
+            onClick={showModal}
+        />
         <Modal
             title="Update todo item text"
             open={open}

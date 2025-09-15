@@ -11,6 +11,7 @@ function TodoDetailButton(props) {
 
     return (
         <Button
+            className="todo-action-btn detail-btn"
             icon={<InfoCircleOutlined/>}
             onClick={goToDetail}
         />

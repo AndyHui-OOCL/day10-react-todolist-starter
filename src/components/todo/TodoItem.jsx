@@ -2,9 +2,9 @@ import {useContext} from "react";
 import {TodoContext} from "../../contexts/TodoContext";
 import {updateTodoById} from "../../apis/apis";
 import {message} from "antd";
-import ModifyTodoTextButton from "../buttons/ModifyTodoTextButton";
-import DeleteTodoButton from "../buttons/DeleteTodoButton";
-import TodoDetailButton from "../buttons/TodoDetailButton";
+import ModifyTodoTextButton from "./buttons/ModifyTodoTextButton";
+import DeleteTodoButton from "./buttons/DeleteTodoButton";
+import TodoDetailButton from "./buttons/TodoDetailButton";
 
 function TodoItem(props) {
     const {todoItems, dispatch} = useContext(TodoContext);
