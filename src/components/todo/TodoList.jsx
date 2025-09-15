@@ -1,12 +1,13 @@
+import {TodoContext} from "../../contexts/TodoContext";
+import "./style/TodoList.css"
 import {useEffect, useReducer} from "react";
-import {todoInitialState, todoReducer} from "../reducers/todoReducer";
-import {getTodos} from "../apis/apis";
-import {message} from "antd";
-import {TodoContext} from "../contexts/TodoContext";
 import TodoItem from "./TodoItem";
-import "./style/TodoList.css";
+import TodoGenerator from "./TodoGenerator";
+import {todoInitialState, todoReducer} from "../../reducers/todoReducer";
+import {getTodos} from "../../apis/apis";
+import {message} from "antd";
 
-const FinishedTodoList = () => {
+const TodoList = () => {
     const [todoItems, dispatch] = useReducer(todoReducer, todoInitialState);
     const value = {todoItems, dispatch};
 
@@ -25,14 +26,16 @@ const FinishedTodoList = () => {
     return (
         <TodoContext.Provider value={value}>
             <div className="todo-list">
-                <div className="todo-title">Completed Todo List</div>
+                <div className="todo-title">Todo List</div>
                 {
                     todoItems.length <= 0 ? (
                         <div className="empty-todo">
-                            No completed tasks yet...
+                            Add the things you need to do today...
                         </div>
                     ) : (
-                        todoItems.filter(({done}) => done).map(({id, text, done}) => (
+                        todoItems.filter(({done}) => {
+                            return !done
+                        }).map(({id, text, done}) => (
                             <TodoItem
                                 key={id}
                                 id={id}
@@ -41,9 +44,11 @@ const FinishedTodoList = () => {
                             />
                         ))
                     )}
+                <TodoGenerator/>
             </div>
         </TodoContext.Provider>
+
     );
 }
 
-export default FinishedTodoList;
+export default TodoList

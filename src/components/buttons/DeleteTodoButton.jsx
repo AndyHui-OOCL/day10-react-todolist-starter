@@ -1,6 +1,6 @@
 import {useContext} from "react";
-import {TodoContext} from "../contexts/TodoContext";
-import {deleteTodoById} from "../apis/apis";
+import {TodoContext} from "../../contexts/TodoContext";
+import {deleteTodoById} from "../../apis/apis";
 import {Button, message} from "antd";
 import {DeleteOutlined} from "@ant-design/icons";
 

@@ -1,6 +1,6 @@
-import { Button } from "antd";
-import { InfoCircleOutlined } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
+import {Button} from "antd";
+import {InfoCircleOutlined} from "@ant-design/icons";
+import {useNavigate} from "react-router-dom";
 
 function TodoDetailButton(props) {
     const navigate = useNavigate();
@@ -11,7 +11,7 @@ function TodoDetailButton(props) {
 
     return (
         <Button
-            icon={<InfoCircleOutlined />}
+            icon={<InfoCircleOutlined/>}
             onClick={goToDetail}
         />
     );

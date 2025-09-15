@@ -1,5 +1,5 @@
-import {Layout, Menu, Typography, Space, Divider} from 'antd';
-import {useState, useEffect} from "react";
+import {Divider, Layout, Menu, Space, Typography} from 'antd';
+import {useEffect, useState} from "react";
 import {NavLink, Outlet, useLocation} from "react-router";
 import {CheckCircleOutlined, HomeOutlined, InfoCircleOutlined, UnorderedListOutlined} from "@ant-design/icons";
 import "./DefaultLayout.css"
@@ -22,7 +22,7 @@ const items = [
     {
         label: <NavLink to={'/finished-todos'}>Finished Todos</NavLink>,
         key: 'Finished Todos',
-        icon: <CheckCircleOutlined />
+        icon: <CheckCircleOutlined/>
     },
     {
         label: <NavLink to={'/about'}>About</NavLink>,
@@ -66,14 +66,14 @@ export function DefaultLayout() {
 
             <Content className="default-content">
                 <div className="default-content-wrapper">
-                    <Outlet />
+                    <Outlet/>
                 </div>
             </Content>
 
             <Footer className="default-footer">
                 <Space>
                     <span>© 2025 Todo Manager</span>
-                    <Divider type="vertical" />
+                    <Divider type="vertical"/>
                     <span>Built with React & Ant Design</span>
                 </Space>
             </Footer>

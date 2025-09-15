@@ -1,10 +1,10 @@
 import {useContext} from "react";
-import {TodoContext} from "../contexts/TodoContext";
-import {updateTodoById} from "../apis/apis";
+import {TodoContext} from "../../contexts/TodoContext";
+import {updateTodoById} from "../../apis/apis";
 import {message} from "antd";
-import ModifyTodoTextButton from "./ModifyTodoTextButton";
-import DeleteTodoButton from "./DeleteTodoButton";
-import TodoDetailButton from "./TodoDetailButton";
+import ModifyTodoTextButton from "../buttons/ModifyTodoTextButton";
+import DeleteTodoButton from "../buttons/DeleteTodoButton";
+import TodoDetailButton from "../buttons/TodoDetailButton";
 
 function TodoItem(props) {
     const {todoItems, dispatch} = useContext(TodoContext);
@@ -31,7 +31,7 @@ function TodoItem(props) {
                 onClick={() => {
                     markedAsDone(props.id)
                 }}>
-                {(props.text !== "") ? props.text : " " }
+                {(props.text !== "") ? props.text : " "}
             </div>
             <TodoDetailButton id={props.id}></TodoDetailButton>
             <ModifyTodoTextButton id={props.id}></ModifyTodoTextButton>

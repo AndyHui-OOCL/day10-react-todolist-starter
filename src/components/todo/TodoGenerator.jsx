@@ -1,7 +1,7 @@
 import {useContext, useState} from "react";
-import {TodoContext} from "../contexts/TodoContext";
-import {addTodos} from "../apis/apis";
-import {message, Input, Button, Card, Space} from "antd";
+import {TodoContext} from "../../contexts/TodoContext";
+import {addTodos} from "../../apis/apis";
+import {Button, Card, Input, message, Space} from "antd";
 import {PlusOutlined} from "@ant-design/icons";
 
 function TodoGenerator() {
@@ -22,11 +22,12 @@ function TodoGenerator() {
             setInputValue("");
         }
     }
+
     return (
         <Card
             className="todo-generator"
         >
-            <Space.Compact style={{ width: '100%', display: 'flex' }}>
+            <Space.Compact style={{width: '100%', display: 'flex'}}>
                 <Input
                     placeholder="What needs to be done?"
                     value={inputValue}
@@ -34,7 +35,7 @@ function TodoGenerator() {
                 />
                 <Button
                     type="primary"
-                    icon={<PlusOutlined />}
+                    icon={<PlusOutlined/>}
                     onClick={addNewTodoItem}
                     style={{
                         height: '40px',

@@ -1,9 +1,9 @@
 import './App.css';
-import TodoList from "./components/TodoList";
-import {createBrowserRouter, RouterProvider, useParams} from "react-router";
+import TodoList from "./components/todo/TodoList";
+import {createBrowserRouter, RouterProvider} from "react-router";
 import {DefaultLayout} from "./_layout/DefaultLayout";
-import FinishedTodoList from "./components/FinishedTodoList";
-import TodoItemDetail from "./components/TodoItemDetail";
+import FinishedTodoList from "./components/todo/FinishedTodoList";
+import TodoItemDetail from "./components/todo/TodoItemDetail";
 
 function ErrorPage() {
     return <h1>Error Page</h1>;

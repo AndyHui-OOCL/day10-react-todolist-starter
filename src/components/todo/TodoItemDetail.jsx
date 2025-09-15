@@ -3,8 +3,8 @@ import {useEffect, useReducer, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {Button, Card, Typography} from "antd";
 import {ArrowLeftOutlined} from "@ant-design/icons";
-import {todoInitialState, todoReducer} from "../reducers/todoReducer";
-import {getTodos} from "../apis/apis";
+import {todoInitialState, todoReducer} from "../../reducers/todoReducer";
+import {getTodos} from "../../apis/apis";
 
 function TodoItemDetail() {
     const {id} = useParams();
@@ -19,7 +19,7 @@ function TodoItemDetail() {
             try {
                 setLoading(true);
                 const response = await getTodos();
-                dispatch({ type: 'load_todos', todos: response.data });
+                dispatch({type: 'load_todos', todos: response.data});
             } catch (error) {
                 console.error('Error fetching todos:', error);
             } finally {
@@ -67,7 +67,7 @@ function TodoItemDetail() {
         <Card
             title="Todo details"
             extra={
-                <Button type = "primary" onClick={handleGoBack} icon = {<ArrowLeftOutlined/>}> Back</Button>
+                <Button type="primary" onClick={handleGoBack} icon={<ArrowLeftOutlined/>}> Back</Button>
             }
         >
             <div className="todo-detail">
