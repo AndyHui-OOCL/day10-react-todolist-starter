@@ -1,7 +1,7 @@
 import {useContext} from "react";
 import {TodoContext} from "../../../contexts/TodoContext";
 import {deleteTodoById} from "../../../apis/apis";
-import {Button, message, Popconfirm} from "antd";
+import {Button, message} from "antd";
 import {DeleteOutlined} from "@ant-design/icons";
 
 function DeleteTodoButton(props) {
@@ -25,6 +25,7 @@ function DeleteTodoButton(props) {
                 danger
                 icon={<DeleteOutlined />}
                 size="small"
+                onClick={() => {deleteTodoItem(props.id)}}
                 style={{
                     display: 'flex',
                     alignItems: 'center',
