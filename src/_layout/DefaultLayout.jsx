@@ -13,7 +13,7 @@ const items = [
     },
     {
         label: <NavLink to={'/todos'}>Todo List</NavLink>,
-        key: 'Todo List',
+        key: 'Todos',
         icon: <UnorderedListOutlined/>
     },
     {

@@ -1,7 +1,4 @@
-export const todoInitialState = [
-    {id: 1, text: "the first todo", done: false},
-    {id: 2, text: "the second todo", done: false},
-];
+export const todoInitialState = [];
 
 // reducer is a pure function that define and gather all state update logic
 export const todoReducer = (state, action) => {
