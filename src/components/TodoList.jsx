@@ -1,13 +1,20 @@
 import {TodoContext} from "../contexts/TodoContext";
 import "./style/TodoList.css"
-import {useReducer} from "react";
+import {useEffect, useReducer} from "react";
 import TodoItem from "./TodoItem";
 import TodoGenerator from "./TodoGenerator";
 import {todoInitialState, todoReducer} from "../reducers/todoReducer";
+import {getTodos} from "../apis/apis";
 
 const TodoList = () => {
     const [todoItems, dispatch] = useReducer(todoReducer, todoInitialState);
     const value = {todoItems, dispatch};
+
+    useEffect(() => {
+        getTodos().then(response => {
+            dispatch({type: 'load_todos', todos: response.data})
+        })
+    }, []);
 
     return (
         <TodoContext.Provider value={value}>
