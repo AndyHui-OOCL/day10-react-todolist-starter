@@ -2,6 +2,7 @@ import './App.css';
 import TodoList from "./components/TodoList";
 import {createBrowserRouter, RouterProvider, useParams} from "react-router";
 import {DefaultLayout} from "./_layout/DefaultLayout";
+import FinishedTodoList from "./components/FinishedTodoList";
 
 function ErrorPage() {
     return <h1>Error Page</h1>;
@@ -31,6 +32,9 @@ const routes = [
         }, {
             path: 'about',
             element: <h1>About Us</h1>
+        }, {
+            path: 'finished-todos',
+            element: <FinishedTodoList/>
         }]
     }
 ]

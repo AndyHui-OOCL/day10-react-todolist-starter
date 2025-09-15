@@ -1,7 +1,7 @@
 import {Layout, Menu} from 'antd';
 import {useState} from "react";
 import {NavLink, Outlet} from "react-router";
-import {HomeOutlined, InfoCircleOutlined, UnorderedListOutlined} from "@ant-design/icons";
+import {CheckCircleOutlined, HomeOutlined, InfoCircleOutlined, UnorderedListOutlined} from "@ant-design/icons";
 
 const {Header, Footer, Sider, Content} = Layout;
 
@@ -15,6 +15,11 @@ const items = [
         label: <NavLink to={'/todos'}>Todo List</NavLink>,
         key: 'Todo List',
         icon: <UnorderedListOutlined/>
+    },
+    {
+        label: <NavLink to={'/finished-todos'}>Finished Todos</NavLink>,
+        key: 'Finished Todos',
+        icon: <CheckCircleOutlined />
     },
     {
         label: <NavLink to={'/about'}>About</NavLink>,

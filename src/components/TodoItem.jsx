@@ -30,7 +30,7 @@ function TodoItem(props) {
                 onClick={() => {
                     markedAsDone(props.id)
                 }}>
-                {props.text}
+                {(props.text !== "") ? props.text : " " }
             </div>
             <ModifyTodoTextButton id={props.id}></ModifyTodoTextButton>
             <DeleteTodoButton id={props.id}></DeleteTodoButton>
