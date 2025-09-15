@@ -33,7 +33,7 @@ export function DefaultLayout() {
 
     return <Layout>
         <Header>
-            <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items}/>
+            <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} theme={"dark"}/>
         </Header>
         <Content>
             <Outlet></Outlet>
