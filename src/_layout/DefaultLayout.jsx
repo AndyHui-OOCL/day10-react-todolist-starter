@@ -19,7 +19,7 @@ const items = [
     {
         label: <NavLink to={'/about'}>About</NavLink>,
         key: 'About',
-        icon:<InfoCircleOutlined/>
+        icon: <InfoCircleOutlined/>
     }
 ];
 
