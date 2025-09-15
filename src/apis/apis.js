@@ -12,8 +12,8 @@ export async function addTodos(todo) {
     return await instance.post('/todos', todo);
 }
 
-export async function updateTodoById(id) {
-    return await instance.put(`/todos/${id}`)
+export async function updateTodoById(id, todo) {
+    return await instance.put(`/todos/${id}`, todo)
 }
 
 export async function deleteTodoById(id) {

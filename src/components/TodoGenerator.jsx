@@ -1,13 +1,20 @@
 import {useContext, useState} from "react";
 import {TodoContext} from "../contexts/TodoContext";
+import {addTodos} from "../apis/apis";
 
 function TodoGenerator() {
     const {dispatch} = useContext(TodoContext);
     const [inputValue, setInputValue] = useState("");
 
-    function addNewTodoItem() {
+    function  addNewTodoItem() {
         if (inputValue.trim()) {
-            dispatch({type: "add_todo", description: inputValue});
+            addTodos({text: inputValue, done: false}).then((response) => {
+                dispatch({type: "add_todo", todo: response.data})
+            }).catch((error) => {
+                if( error.response ){
+                    console.log(error.response.data);
+                }
+            })
             setInputValue("");
         }
     }

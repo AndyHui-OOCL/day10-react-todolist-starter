@@ -10,12 +10,7 @@ export const todoReducer = (state, action) => {
     switch (action.type) {
         case 'add_todo':
             return [
-                ...state,
-                {
-                    id: Math.max(0, ...state.map(todo => todo.id)) + 1,
-                    text: action.description,
-                    done: false,
-                }
+                ...state, action.todo
             ];
         case 'load_todos':
             return action.todos

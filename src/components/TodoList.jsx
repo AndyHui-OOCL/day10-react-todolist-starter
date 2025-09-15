@@ -34,7 +34,7 @@ const TodoList = () => {
                                 done={done}
                             />
                         ))
-                    )}
+                )}
                 <TodoGenerator/>
             </div>
         </TodoContext.Provider>

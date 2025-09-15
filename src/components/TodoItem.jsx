@@ -1,8 +1,9 @@
 import {useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
+import {getTodos, updateTodoById} from "../apis/apis";
 
 function TodoItem(props) {
-    const {dispatch} = useContext(TodoContext);
+    const {todoItems, dispatch} = useContext(TodoContext);
 
     function markedAsDone(id) {
         dispatch({type: "mark_as_done", id: id});
