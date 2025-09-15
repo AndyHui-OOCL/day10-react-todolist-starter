@@ -1,7 +1,7 @@
 import {useContext} from "react";
 import {TodoContext} from "../../../contexts/TodoContext";
 import {deleteTodoById} from "../../../apis/apis";
-import {Button, message} from "antd";
+import {Button, message, Popconfirm} from "antd";
 import {DeleteOutlined} from "@ant-design/icons";
 
 function DeleteTodoButton(props) {
@@ -10,21 +10,27 @@ function DeleteTodoButton(props) {
     function deleteTodoItem(id) {
         deleteTodoById(id).then(() => {
             dispatch({type: "delete_todo", id: id})
-            message.success("Successful delete!");
+            message.success("Task deleted successfully!");
         }).catch((error) => {
             if (error.response) {
                 console.log(error.response.data);
             }
-            message.error("Unsuccessful delete")
+            message.error("Failed to delete task")
         })
     }
 
     return (
-        <Button
-            className="todo-action-btn delete-btn"
-            icon={<DeleteOutlined/>}
-            onClick={() => deleteTodoItem(props.id)}
-        />
+            <Button
+                type="text"
+                danger
+                icon={<DeleteOutlined />}
+                size="small"
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}
+            />
     )
 }
 

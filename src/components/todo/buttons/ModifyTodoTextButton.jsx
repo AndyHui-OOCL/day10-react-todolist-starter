@@ -21,11 +21,15 @@ function ModifyTodoTextButton(props) {
     }
 
     const handleOk = () => {
-        setConfirmLoading(true);
-        updateTodoText(props.id, inputText)
-        setInputText('');
-        setOpen(false);
-        setConfirmLoading(false);
+        if (inputText.trim()) {
+            setConfirmLoading(true);
+            updateTodoText(props.id, inputText)
+            setInputText('');
+            setOpen(false);
+            setConfirmLoading(false);
+        } else {
+            message.warning("Task text cannot be empty!");
+        }
     }
 
     const handleCancel = () => {
@@ -38,29 +42,45 @@ function ModifyTodoTextButton(props) {
         const updatedTodo = {...targetTodo, text: newText};
         updateTodoById(id, updatedTodo).then(() => {
             dispatch({type: "update_todo_text", id: id, text: newText})
-            message.success("Todo text updated!")
+            message.success("Task updated successfully!")
         }).catch((error) => {
             if (error.response) {
                 console.log(error.response.data);
             }
-            message.error("Todo text cannot be updated!")
+            message.error("Failed to update task!")
         })
     }
 
     return (<>
         <Button
-            className="todo-action-btn edit-btn"
+            type="text"
             icon={<EditOutlined/>}
             onClick={showModal}
+            size="small"
+            style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+            }}
         />
         <Modal
-            title="Update todo item text"
+            title="Edit Task"
             open={open}
             onOk={handleOk}
             confirmLoading={confirmLoading}
             onCancel={handleCancel}
+            okText="Update"
+            cancelText="Cancel"
+            style={{top: 100}}
         >
-            <Input placeholder="New todo text" value={inputText} onChange={handleInputChange}/>
+            <Input
+                placeholder="Enter task description"
+                value={inputText}
+                onChange={handleInputChange}
+                size="large"
+                style={{marginTop: '16px'}}
+                onPressEnter={handleOk}
+            />
         </Modal>
     </>)
 }

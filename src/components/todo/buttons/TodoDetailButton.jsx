@@ -11,9 +11,15 @@ function TodoDetailButton(props) {
 
     return (
         <Button
-            className="todo-action-btn detail-btn"
+            type="text"
             icon={<InfoCircleOutlined/>}
             onClick={goToDetail}
+            size="small"
+            style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+            }}
         />
     );
 }
