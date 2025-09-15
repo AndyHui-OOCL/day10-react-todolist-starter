@@ -1,8 +1,9 @@
 import {useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
-import {deleteTodoById, updateTodoById} from "../apis/apis";
+import {updateTodoById} from "../apis/apis";
 import {message} from "antd";
 import ModifyTodoTextButton from "./ModifyTodoTextButton";
+import DeleteTodoButton from "./DeleteTodoButton";
 
 function TodoItem(props) {
     const {todoItems, dispatch} = useContext(TodoContext);
@@ -22,18 +23,6 @@ function TodoItem(props) {
         });
     }
 
-    function deleteTodoItem(id) {
-        deleteTodoById(id).then(() => {
-            dispatch({type: "delete_todo", id: id})
-            message.success("Successful delete!");
-        }).catch((error) => {
-            if (error.response) {
-                console.log(error.response.data);
-            }
-            message.error("Unsuccessful delete")
-        })
-    }
-
     return (
         <div className="todo-item">
             <div
@@ -44,12 +33,7 @@ function TodoItem(props) {
                 {props.text}
             </div>
             <ModifyTodoTextButton id={props.id}></ModifyTodoTextButton>
-            <button
-                onClick={() => {
-                    deleteTodoItem(props.id)
-                }}
-            > X
-            </button>
+            <DeleteTodoButton id={props.id}></DeleteTodoButton>
 
         </div>
     )

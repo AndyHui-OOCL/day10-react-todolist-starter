@@ -40,7 +40,7 @@ function ModifyTodoTextButton(props) {
             dispatch({type: "update_todo_text", id: id, text: newText})
             message.success("Todo text updated!")
         }).catch((error) => {
-            if(error.response) {
+            if (error.response) {
                 console.log(error.response.data);
             }
             message.error("Todo text cannot be updated!")
@@ -48,9 +48,9 @@ function ModifyTodoTextButton(props) {
     }
 
     return (<>
-        <Button icon={<EditOutlined />} onClick={showModal}></Button>
+        <Button icon={<EditOutlined/>} onClick={showModal}></Button>
         <Modal
-            title = "Update todo item text"
+            title="Update todo item text"
             open={open}
             onOk={handleOk}
             confirmLoading={confirmLoading}
