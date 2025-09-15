@@ -1,6 +1,6 @@
 import {useContext} from "react";
 import {TodoContext} from "../contexts/TodoContext";
-import {getTodos, updateTodoById} from "../apis/apis";
+import {updateTodoById, deleteTodoById} from "../apis/apis";
 
 function TodoItem(props) {
     const {todoItems, dispatch} = useContext(TodoContext);
@@ -10,11 +10,21 @@ function TodoItem(props) {
         const updatedTodo = {...targetTodo, done: !targetTodo.done};
         updateTodoById(id, updatedTodo).then(() => {
             dispatch({type: "mark_as_done", id: id});
+        }).catch((error) => {
+            if( error.response ){
+                console.log(error.response.data);
+            }
         });
     }
 
     function deleteTodoItem(id) {
-        dispatch({type: "delete_todo", id: id});
+        deleteTodoById(id).then(() => {
+            dispatch({type: "delete_todo", id: id})
+        }).catch((error) => {
+            if( error.response ){
+                console.log(error.response.data);
+            }
+        })
     }
 
     return (

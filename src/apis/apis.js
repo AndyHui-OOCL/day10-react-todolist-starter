@@ -17,5 +17,5 @@ export async function updateTodoById(id, todo) {
 }
 
 export async function deleteTodoById(id) {
-    return await instance.delete(`/todos${id}`)
+    await instance.delete(`/todos/${id}`)
 }

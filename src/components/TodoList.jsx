@@ -13,6 +13,10 @@ const TodoList = () => {
     useEffect(() => {
         getTodos().then(response => {
             dispatch({type: 'load_todos', todos: response.data})
+        }).catch((error) => {
+            if( error.response ){
+                console.log(error.response.data);
+            }
         })
     }, []);
 
