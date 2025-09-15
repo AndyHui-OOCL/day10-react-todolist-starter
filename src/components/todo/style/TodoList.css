@@ -1,134 +1,101 @@
-.todo-list {
-    justify-content: center;
+/* Enhanced Todo List Styles */
+.todo-list-card {
+    background: #ffffff;
 }
 
-.todo-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 10px;
+.todo-list-card .ant-card-body {
+    padding: 24px;
 }
 
-.empty-todo {
-    margin-bottom: 10px;
+.todo-item-card {
+    transition: all 0.3s ease;
 }
 
-.todo-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-    gap: 10px;
-    padding: 12px 16px;
-    border-bottom: 1px solid #f0f0f0;
-    background: white;
-    transition: background-color 0.2s ease;
-
-    button {
-        height: auto;
-        padding: 2px 3px
-    }
-
-    &:hover {
-        background: #fafafa;
-    }
+.todo-item-card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transform: translateY(-1px);
 }
 
-.todo-info {
-    width: 400px;
-    border: 1px black solid;
-
-    &.finished {
-        text-decoration-line: line-through;
-    }
-}
-
-.todo-generator {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-
-    input {
-        border-radius: 8px 0 0 8px;
-        height: 40px;
-        font-size: 16px;
-    }
-
-    button {
-        height: 40px;
-        border-radius: 0 8px 8px 0;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        border: none;
-        min-width: 60px;
-    }
-}
-
-/* Todo Action Buttons - Minimalistic Styling */
 .todo-actions {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  margin-left: auto;
+    display: flex;
+    gap: 4px;
+    align-items: center;
 }
 
-.todo-action-btn {
-  border: none !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  padding: 4px 8px !important;
-  height: 32px !important;
-  width: 32px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  border-radius: 6px !important;
-  transition: all 0.2s ease !important;
-  color: #8c8c8c !important;
+.todo-actions .ant-btn {
+    transition: all 0.3s ease;
 }
 
-.todo-action-btn:hover {
-  background: #f5f5f5 !important;
-  color: #595959 !important;
-  transform: translateY(-1px);
+.todo-actions .ant-btn:hover {
+    transform: scale(1.1);
 }
 
-.todo-action-btn:focus {
-  background: #f0f0f0 !important;
-  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
+/* Checkbox styling enhancement */
+.ant-checkbox-wrapper {
+    display: flex;
+    align-items: center;
 }
 
-/* Specific button styling */
-.delete-btn:hover {
-  background: #fff2f0 !important;
-  color: #ff4d4f !important;
+.ant-checkbox-wrapper:hover .ant-checkbox-inner {
+    border-color: #1890ff;
 }
 
-.edit-btn:hover {
-  background: #f6ffed !important;
-  color: #52c41a !important;
+/* Input and button enhancements */
+.ant-input:focus,
+.ant-input-focused {
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
 }
 
-.detail-btn:hover {
-  background: #e6f7ff !important;
-  color: #1890ff !important;
+.ant-btn-primary {
+    transition: all 0.3s ease;
 }
 
-/* Modal styling for edit button */
+.ant-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
+}
+
+/* Empty state styling */
+.ant-empty {
+    margin: 20px 0;
+}
+
+.ant-empty-description {
+    color: #8c8c8c;
+}
+
+/* Modal enhancements */
 .ant-modal-header {
-  border-bottom: 1px solid #f0f0f0;
-  padding: 16px 24px;
-}
-
-.ant-modal-title {
-  font-size: 16px;
-  font-weight: 500;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 16px 24px;
 }
 
 .ant-modal-body {
-  padding: 24px;
+    padding: 24px;
 }
 
-.ant-modal-footer {
-  border-top: 1px solid #f0f0f0;
-  padding: 10px 16px;
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .todo-list-card {
+        margin: 10px;
+        border-radius: 8px;
+    }
+
+    .todo-item-card {
+        margin-bottom: 6px;
+    }
+
+    .todo-actions {
+        gap: 2px;
+    }
+}
+
+@media (max-width: 576px) {
+    .ant-card-body {
+        padding: 16px !important;
+    }
+
+    .ant-typography h2 {
+        font-size: 20px !important;
+    }
 }
