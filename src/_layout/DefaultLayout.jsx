@@ -1,9 +1,12 @@
-import {Layout, Menu} from 'antd';
-import {useState} from "react";
-import {NavLink, Outlet} from "react-router";
+import {Layout, Menu, Typography, Space, Divider} from 'antd';
+import {useState, useEffect} from "react";
+import {NavLink, Outlet, useLocation} from "react-router";
 import {CheckCircleOutlined, HomeOutlined, InfoCircleOutlined, UnorderedListOutlined} from "@ant-design/icons";
+import "./DefaultLayout.css"
 
-const {Header, Footer, Sider, Content} = Layout;
+const {Header, Footer, Content} = Layout;
+const {Title} = Typography;
+
 
 const items = [
     {
@@ -30,21 +33,50 @@ const items = [
 
 export function DefaultLayout() {
     const [current, setCurrent] = useState('');
+    const location = useLocation();
+
+    useEffect(() => {
+        const path = location.pathname;
+        if (path === '/') setCurrent('Home');
+        else if (path === '/todos') setCurrent('Todos');
+        else if (path === '/finished-todos') setCurrent('Finished Todos');
+        else if (path === '/about') setCurrent('About');
+    }, [location]);
 
     const onClick = (e) => {
-        console.log('click ', e);
         setCurrent(e.key);
     };
 
-    return <Layout>
-        <Header>
-            <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} theme={"dark"}/>
-        </Header>
-        <Content>
-            <Outlet></Outlet>
-        </Content>
-        <Footer>
-            Copyright
-        </Footer>
-    </Layout>
+    return (
+        <Layout className="default-layout">
+            <Header className='default-header'>
+                <div>
+                    <Title level={3} className="default-header-title">
+                        Todo Manager
+                    </Title>
+                    <Menu
+                        onClick={onClick}
+                        selectedKeys={[current]}
+                        mode="horizontal"
+                        items={items}
+                        className="default-menu"
+                    />
+                </div>
+            </Header>
+
+            <Content className="default-content">
+                <div className="default-content-wrapper">
+                    <Outlet />
+                </div>
+            </Content>
+
+            <Footer className="default-footer">
+                <Space>
+                    <span>© 2025 Todo Manager</span>
+                    <Divider type="vertical" />
+                    <span>Built with React & Ant Design</span>
+                </Space>
+            </Footer>
+        </Layout>
+    );
 }
