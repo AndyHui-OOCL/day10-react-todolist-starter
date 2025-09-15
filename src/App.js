@@ -3,17 +3,12 @@ import TodoList from "./components/TodoList";
 import {createBrowserRouter, RouterProvider, useParams} from "react-router";
 import {DefaultLayout} from "./_layout/DefaultLayout";
 import FinishedTodoList from "./components/FinishedTodoList";
+import TodoItemDetail from "./components/TodoItemDetail";
 
 function ErrorPage() {
     return <h1>Error Page</h1>;
 }
 
-function TodoDetail() {
-    const {id} = useParams();
-    return <h1>
-        This is: {id} detail
-    </h1>;
-}
 
 const routes = [
     {
@@ -28,7 +23,7 @@ const routes = [
             element: <TodoList/>,
         }, {
             path: '/todos/:id',
-            element: <TodoDetail></TodoDetail>
+            element: <TodoItemDetail></TodoItemDetail>
         }, {
             path: 'about',
             element: <h1>About Us</h1>

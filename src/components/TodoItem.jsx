@@ -4,6 +4,7 @@ import {updateTodoById} from "../apis/apis";
 import {message} from "antd";
 import ModifyTodoTextButton from "./ModifyTodoTextButton";
 import DeleteTodoButton from "./DeleteTodoButton";
+import TodoDetailButton from "./TodoDetailButton";
 
 function TodoItem(props) {
     const {todoItems, dispatch} = useContext(TodoContext);
@@ -32,9 +33,9 @@ function TodoItem(props) {
                 }}>
                 {(props.text !== "") ? props.text : " " }
             </div>
+            <TodoDetailButton id={props.id}></TodoDetailButton>
             <ModifyTodoTextButton id={props.id}></ModifyTodoTextButton>
             <DeleteTodoButton id={props.id}></DeleteTodoButton>
-
         </div>
     )
 }
